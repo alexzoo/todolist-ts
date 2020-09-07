@@ -1,6 +1,5 @@
 .App {
   padding: 30px;
-  display: flex;
 }
 
 .App > div {
@@ -13,4 +12,8 @@
 
 .error_message {
   color: red;
+}
+
+.active_filter {
+  background-color: tomato;
 }
