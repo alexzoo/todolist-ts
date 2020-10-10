@@ -17,3 +17,7 @@
 .active_filter {
   background-color: tomato;
 }
+
+.is_done {
+  opacity: 0.5;
+}
