@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import ToDoList from "./ToDoList";
 import {v1} from "uuid";
+import {AddItemForm} from "./AddItemForm";
 
 export type TaskType = {
     id: string
@@ -68,13 +69,28 @@ function App() {
         setTasks({...tasks})
     }
 
-    function changeStatus(taskId: string, isDone: boolean, todoListId: string) {
-        let todoListTasks = tasks[todoListId]
-        let task = todoListTasks.find(t => t.id === taskId)
-        if (task) {
-            task.isDone = isDone
-            setTasks({...tasks})
-        }
+    function changeTaskStatus(taskId: string, isDone: boolean, todoListId: string) {
+        const todoList = tasks[todoListId]
+        const newTodoList = todoList.map(task => {
+            if (task.id === taskId) {
+                return {...task, isDone: isDone}
+            }
+            return task
+        })
+        tasks[todoListId] = newTodoList
+        setTasks({...tasks})
+    }
+
+    function changeTaskTitle(taskId: string, title: string, todoListId: string) {
+        const todoList = tasks[todoListId]
+        const newTodoList = todoList.map(task => {
+            if (task.id === taskId) {
+                return {...task, title: title}
+            }
+            return task
+        })
+        tasks[todoListId] = newTodoList
+        setTasks({...tasks})
     }
 
     function removeTodoList(todoListId: string) {
@@ -83,8 +99,21 @@ function App() {
         setTasks({...tasks})
     }
 
+    function addTodoList(title: string) {
+        const newTodoListId = v1()
+        const newTodoList: TodoListType = {
+            id: newTodoListId, title: title, filter: "all"
+        }
+        setTodoLists([newTodoList, ...todoLists])
+        setTasks({
+            ...tasks,
+            [newTodoListId]: []
+        })
+    }
+
     return (
         <div className="App">
+            <AddItemForm addItem={addTodoList}/>
             {
                 todoLists.map(tl => {
                     let tasksForTodoList = tasks[tl.id];
@@ -103,9 +132,10 @@ function App() {
                             removedTask={removeTask}
                             addTask={addTask}
                             changeFilter={changeFilter}
-                            changeStatus={changeStatus}
+                            changeTaskStatus={changeTaskStatus}
                             filter={tl.filter}
                             removeTodoList={removeTodoList}
+                            changeTaskTitle={changeTaskTitle}
                         />
                     )
                 })
