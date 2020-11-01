@@ -148,24 +148,26 @@ function App() {
                             if (tl.filter === 'completed') {
                                 tasksForTodoList = tasks[tl.id].filter(t => t.isDone === true)
                             }
-                            return <Grid item>
-                                <Paper style={{padding: '10px'}}>
-                                    <ToDoList
-                                        key={tl.id}
-                                        id={tl.id}
-                                        title={tl.title}
-                                        tasks={tasksForTodoList}
-                                        removedTask={removeTask}
-                                        addTask={addTask}
-                                        changeFilter={changeFilter}
-                                        changeTaskStatus={changeTaskStatus}
-                                        filter={tl.filter}
-                                        removeTodoList={removeTodoList}
-                                        changeTaskTitle={changeTaskTitle}
-                                        changeTodoListTitle={changeTodoListTitle}
-                                    />
-                                </Paper>
-                            </Grid>
+                            return (
+                                <Grid item>
+                                    <Paper style={{padding: '10px'}} elevation={3}>
+                                        <ToDoList
+                                            key={tl.id}
+                                            id={tl.id}
+                                            title={tl.title}
+                                            tasks={tasksForTodoList}
+                                            removedTask={removeTask}
+                                            addTask={addTask}
+                                            changeFilter={changeFilter}
+                                            changeTaskStatus={changeTaskStatus}
+                                            filter={tl.filter}
+                                            removeTodoList={removeTodoList}
+                                            changeTaskTitle={changeTaskTitle}
+                                            changeTodoListTitle={changeTodoListTitle}
+                                        />
+                                    </Paper>
+                                </Grid>
+                            )
                         })
                     }
                 </Grid>
