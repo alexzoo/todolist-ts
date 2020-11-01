@@ -1,23 +1,23 @@
-.App {
-  padding: 30px;
-}
+/*.App {*/
+/*  padding: 30px;*/
+/*}*/
 
-.App > div {
-  margin-right: 50px;
-}
+/*.App > div {*/
+/*  margin-right: 50px;*/
+/*}*/
 
-.error {
-  border: red 1px solid;
-}
+/*.error {*/
+/*  border: red 1px solid;*/
+/*}*/
 
-.error_message {
-  color: red;
-}
+/*.error_message {*/
+/*  color: red;*/
+/*}*/
 
-.active_filter {
-  background-color: tomato;
-}
+/*.active_filter {*/
+/*  background-color: tomato;*/
+/*}*/
 
-.is_done {
-  opacity: 0.5;
-}
+/*.is_done {*/
+/*  opacity: 0.5;*/
+/*}*/
