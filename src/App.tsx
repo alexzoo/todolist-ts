@@ -143,10 +143,10 @@ function App() {
                         todoLists.map(tl => {
                             let tasksForTodoList = tasks[tl.id];
                             if (tl.filter === 'active') {
-                                tasksForTodoList = tasks[tl.id].filter(t => t.isDone === false)
+                                tasksForTodoList = tasks[tl.id].filter(t => !t.isDone)
                             }
                             if (tl.filter === 'completed') {
-                                tasksForTodoList = tasks[tl.id].filter(t => t.isDone === true)
+                                tasksForTodoList = tasks[tl.id].filter(t => t.isDone)
                             }
                             return (
                                 <Grid item>
