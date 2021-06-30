@@ -7,7 +7,6 @@ export enum TaskActions {
     ADD_TASK = 'ADD_TASK',
     CHANGE_TASK_STATUS = 'CHANGE_TASK_STATUS',
     CHANGE_TASK_TITLE = 'CHANGE_TASK_TITLE',
-    REMOVE_TODOLIST = 'REMOVE_TODOLIST'
 }
 
 export type RemoveTaskActionType = {
